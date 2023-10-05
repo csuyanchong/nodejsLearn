@@ -8,9 +8,9 @@ const path = require('path');
 
 // console.log(uuid.v4());
 
-const logEventsAsync = async (message) => {
+const logEventsAsync = async (message, url, method) => {
    const dateTime = `${format(new Date(), 'yyyyMMdd\tHH:mm:ss')}`;
-   const logItem = `${dateTime}\t${uuid.v4()}\t${message}\n`;
+   const logItem = `${dateTime}\t${uuid.v4()}\t${message}\t${url}\t${method}\n`;
    console.log(logItem);
    try {
       const dirLog = path.join(__dirname, 'logs');

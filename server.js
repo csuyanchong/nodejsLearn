@@ -1,36 +1,46 @@
-const http = require('http');
+const express = require('express');
+const app = express();
+
+const cors = require('cors');
+
 const path = require('path');
-const fs = require('fs');
-
-const logEvents = require('./logEvents');
-const EventEmitter = require('events');
-class Emitter extends EventEmitter {
-
-};
-
-// 初始化对象
-const myEventEmitter = new Emitter();
-
+const { logEventsAsync } = require('./logEvents');
 const PORT = process.env.PORT || 3500;
 
-const server = http.createServer((req, res) => {
-   console.log(req.url, req.method);
+const pathIndex = path.join(__dirname, 'views', 'index.html');
+const pathPublic = path.join(__dirname, 'public');
 
-   if (req.url === '/' || req.url === 'index.html') {
-      res.statusCode = 200;
-      res.setHeader('Content-Type', 'text/html');
-      res.end();
-   }
+// cross origin resource sharing
+const whitelist = ['https://www.mywebsite.com', 'http://127.0.0.1:5500', 'http://localhost:3500'];
+const corsOption = {
+   origin: (origin, callback) => {
+      if (whitelist.indexOf(origin) != -1 || !origin) {
+         callback(null, true);
+      }
+      else {
+         callback(new Error('Not allowed by CORS!'));
+      }
+   },
+   optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOption));
+
+app.use(express.static(pathPublic))
+
+app.get('/', (req, res) => {
+   logEventsAsync("请求", req.headers.origin, req.method);
+
+   res.sendFile(pathIndex);
 });
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
    console.log(`Server is runing on port ${PORT}`);
 });
-// myEventEmitter.on('log', (msg) => {
-//    logEvents.logEventsAsync(msg);
-//    // test
-// });
 
 
-// myEventEmitter.emit('log', 'event dispather!');
+const pattern = /s$/i;
 
+const pattern2 = new RegExp("s$");
+
+const pattern3 = /\\/;
