@@ -1,1 +1,10 @@
-[]
+[
+   {
+      "username": "yc137",
+      "password": "$2b$10$F.2nYaCY8ibICsJCeuJfPO4WpDutQyHaHt9tjrnutxK..PCAKvhB."
+   },
+   {
+      "username": "zhangsan",
+      "password": "$2b$10$tKLVBeIw.H5mL2LTmGICLOilllI3ZzU.tvf/3EJmCnawz4Ue25bhK"
+   }
+]

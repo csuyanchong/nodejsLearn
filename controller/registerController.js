@@ -1,7 +1,11 @@
 const bcrypt = require('bcrypt');
+const fs = require('fs');
+const path = require('path');
+
+const pathDB = path.join(__dirname, '..', 'model', 'user.json');
 
 const userDB = {
-   users: require('../model/user.json'),
+   users: require(pathDB),
    setUsers: function (val) {
       this.users = val;
    }
@@ -23,8 +27,15 @@ const handleNewUser = async (req, res) => {
 
    // 插入操作
    const hashedPwd = await bcrypt.hash(pwd, 10);
-   const newUser = { "username": user, "password": pwd };
+   const newUser = { "username": user, "password": hashedPwd };
    userDB.setUsers([...userDB.users, newUser]);
-   // TODO... 
+
+   let resDB = JSON.stringify(userDB.users);
+   // 写入文件
+   await fs.writeFileSync(pathDB, resDB, 'utf-8');
+   console.log(userDB.users);
+   res.status(201).json({ 'success': `New user ${user} created!` });
 }
+
+module.exports = { handleNewUser };
 

@@ -13,3 +13,16 @@
 20231006	23:49:34	e9e0d89d-6b2a-4f08-82d3-a9a38934b600	undefined	/employees	POST
 20231006	23:49:39	7a42931d-c5a8-42e1-b91d-4ff6bef55f25	undefined	/employees	GET
 20231007	10:47:14	1f5a88af-2354-404d-b29e-b5162dcff56b	undefined	/employees	GET
+20231008	12:38:46	47689164-9876-4324-8b84-721cc449853f	undefined	/register	GET
+20231008	12:39:06	69b5d68b-7f0c-469d-a770-afaca6f1a982	undefined	/register	POST
+20231008	12:39:18	67826c44-825c-4d43-b714-5d150e4ce8ff	undefined	/register	POST
+20231008	12:40:44	9028345a-cea1-44f2-9a79-2291ca602353	undefined	/register	POST
+20231008	12:43:06	25352124-bb4b-43f8-b237-5dcf77f9c67a	undefined	/register	POST
+20231008	16:13:35	2f734e49-6bbd-47c5-ba12-ce11348f7a6c	undefined	/register	POST
+20231008	16:14:34	96d79c1a-945c-4f5a-8eaf-a3ec06be739a	undefined	/register	POST
+20231008	16:52:40	6f2a721e-79fc-4ddb-956b-b9b8b1da5048	undefined	/login	GET
+20231008	16:53:06	8b4f8759-4e63-4160-af33-2cb0c0ce8746	undefined	/login	POST
+20231008	16:54:48	b28423cd-fcde-4cb6-9f72-b843698de9db	undefined	/login	POST
+20231008	16:55:03	8f0c1925-1e13-44d3-8aba-5c92ffe19a1c	undefined	/login	POST
+20231008	16:55:12	1730a3bb-beb3-4d45-8f4c-5c080f41a8b2	undefined	/login	POST
+20231008	16:55:24	5318c401-6ee8-4fa5-ad4c-44939808e199	undefined	/login	POST

@@ -30,7 +30,9 @@ app.use(express.json());
 
 // api
 app.use('/employees', require('./routes/api/employee'));
-// app.use('/employee', require('routes/api/empoloyee'));
+app.use('/register', require('./routes/api/register'));
+app.use('/login', require('./routes/api/login'));
+
 
 app.get('/', (req, res) => {
    logEventsAsync("请求", req.headers.origin, req.method);
