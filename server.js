@@ -5,7 +5,7 @@ const cors = require('cors');
 const corsOption = require('./config/corsOption');
 
 const path = require('path');
-const { logEventsAsync } = require('./logEvents');
+const { logEventsAsync } = require('./middleware/logEvents');
 const PORT = process.env.PORT || 3500;
 
 const pathIndex = path.join(__dirname, 'views', 'index.html');
@@ -24,9 +24,11 @@ app.use((req, res, next) => {
    next();
 });
 
+// built-in middleware for json
 app.use(express.json());
 
-// app.use(express.urlencoded({ extended: true }));
+// built-in middleware to handle urlencoded form data
+app.use(express.urlencoded({ extended: true }));
 
 // api
 app.use('/employees', require('./routes/api/employee'));
