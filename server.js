@@ -19,6 +19,7 @@ const connectDB = require("./config/dbConn");
 connectDB();
 
 const verifyJWT = require('./middleware/verifyJWT');
+const cookieParser = require('cookie-parser');
 
 // cross origin resource sharing
 app.use(cors(corsOption));
@@ -38,9 +39,13 @@ app.use(express.json());
 // built-in middleware to handle urlencoded form data
 app.use(express.urlencoded({ extended: true }));
 
+// cookies
+app.use(cookieParser());
+
 //routers
 app.use("/register", require("./routes/register"));
 app.use("/login", require("./routes/login"));
+app.use("/refresh", require("./routes/refresh"));
 
 // api
 app.use(verifyJWT);
