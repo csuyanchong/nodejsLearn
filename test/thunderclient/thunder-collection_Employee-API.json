@@ -1,0 +1,84 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Employee-API",
+    "dateExported": "2023-10-11T12:04:19.836Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "be161919-cd8b-4a79-8c0b-6bd3019a3096",
+            "colId": "e122a29f-bbbf-4ff6-b010-413edc5e661d",
+            "containerId": "",
+            "name": "Employee-Put",
+            "url": "http://localhost:3500/employees",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2023-10-08T04:36:30.317Z",
+            "modified": "2023-10-08T04:36:30.317Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 1,\n  \"name\": \"张三\",\n  \"age\": 30\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "45ef1168-3194-49a7-b3e2-f41495badeb5",
+            "colId": "e122a29f-bbbf-4ff6-b010-413edc5e661d",
+            "containerId": "",
+            "name": "Employee-Delete",
+            "url": "http://localhost:3500/employees",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2023-10-08T04:36:46.584Z",
+            "modified": "2023-10-08T04:36:46.584Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "9d9a20b9-3e97-4bb8-b290-5d8752ed3cea",
+            "colId": "e122a29f-bbbf-4ff6-b010-413edc5e661d",
+            "containerId": "",
+            "name": "Employee-Post",
+            "url": "http://localhost:3500/employees",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-10-08T04:36:58.526Z",
+            "modified": "2023-10-08T04:36:58.526Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"yanchong\",\n  \"age\": 32\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "994a066e-5b06-4a1a-991c-66f19b13b6df",
+            "colId": "e122a29f-bbbf-4ff6-b010-413edc5e661d",
+            "containerId": "",
+            "name": "Employee-Get",
+            "url": "http://localhost:3500/employees",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-10-08T04:37:08.357Z",
+            "modified": "2023-10-11T11:47:32.085Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InpoYW5nc2FuIiwiaWF0IjoxNjk3MDI0ODQ1LCJleHAiOjE2OTcwMjQ4NzV9.DnZb-EK6OChjVU60hS0BBsuWazshF6YAB6S3PDRx5NU"
+            },
+            "tests": []
+        }
+    ]
+}

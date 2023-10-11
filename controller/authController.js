@@ -1,19 +1,6 @@
-const bcrypt = require('bcrypt');
-const path = require('path');
-
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
-
-const fs = require('fs');
-
-const pathDB = path.join(__dirname, '..', 'model', 'user.json');
-
-const userDB = {
-   users: require(pathDB),
-   setUsers: function (val) {
-      this.users = val;
-   }
-};
+const User = require('../model/User');
+const bcrypt = require('bcrypt');
 
 
 const handleLogin = async (req, res) => {
@@ -24,7 +11,7 @@ const handleLogin = async (req, res) => {
    }
 
    // 查找
-   const target = userDB.users.find((val) => val.username === user);
+   const target = await User.findOne({ username: user }).exec();;
    if (!target) {
       // 没找到
       return res.status(401).json({ 'message': `User ${user} not found!` });
@@ -33,7 +20,27 @@ const handleLogin = async (req, res) => {
    // 评估密码
    let isSame = bcrypt.compareSync(pwd, target.password);
    if (isSame) {
-      return res.status(200).json({ 'success': `User ${user} is logged in!` });
+      // jwts
+      const accessToken = jwt.sign(
+         { "username": target.username },
+         process.env.ACCESS_TOKEN_SECRET,
+         { expiresIn: '30s' }
+      );
+      const refreshToken = jwt.sign(
+         { "username": target.username },
+         process.env.REFRESH_TOKEN_SECRET,
+         { expiresIn: '1d' }
+      );
+
+      // save refreshtoken into mongoDB database
+      target.refreshToken = refreshToken;
+      await target.save();
+
+      res.cookie('jwt', refreshToken, {
+         httpOnly: true,
+         maxAge: 24 * 60 * 60 * 1000
+      });
+      return res.status(200).json({ accessToken });
    }
    else {
       // 密码不对
