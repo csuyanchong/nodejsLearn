@@ -23,6 +23,8 @@ const handleLogout = async (req, res) => {
     target.refreshToken = '';
     await target.save();
 
+    console.log(target);
+
     res.clearCookie('jwt', {
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000
